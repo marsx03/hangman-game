@@ -1,0 +1,29 @@
+hangman
+
+{ "head", "body", "armL", "armR", "legL", "legR" };
+   0        1...
+
+1 head
+2 body
+3 left arm
+4 right arm
+5 left leg
+6 right leg
+
+
+------------   what needs to happen	-----------------------------------
+
+1. player selects theme
+2. random word from themed list becomes the word to guess
+3. for each letter, the letter becomes replaced with a "_ " & spaces w/ "  " (big boy --> _ _ _   _ _ _ )
+4. user inputs a guess (1 letter)
+5. guess compared to word
+	-does word have the guessed letter? 
+		.Contains(guess)
+	-how many times does the letter appear?
+	-where does the letter appear? fo
+
+	*if correctly guessed, the letter appears in place of its corresponding "_"s  
+	*if not, the letter wrongAttemptsLeft reduces by 1, the letter guessed appears in "incorrect guesses" list,
+	 the hangman at the gallows gets one body part added 
+
