@@ -27,3 +27,4 @@ hangman
 	*if not, the letter wrongAttemptsLeft reduces by 1, the letter guessed appears in "incorrect guesses" list,
 	 the hangman at the gallows gets one body part added 
 
+GOALS FOR BEFORE 12/11: get basic functionality of game
