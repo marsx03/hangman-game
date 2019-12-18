@@ -8,11 +8,12 @@ namespace HangmanDriver
 {
     class Hangman
     {
-        private string[] words = {"lemon","peach","cherry" }; //to change into import from txt file of ridiculous words
+        private string[] words = { "function", "instantiate", "method", "object", "parameter", "variable", "loop", "null", "syntax", "exception", "csharp", "matt", "steven","jordan"}; //to change into import from txt file of ridiculous words,,, perhaps???
         private string secretWord;
         private string hiddenWord;
-        private List<string> letterBank;
-        private string man;
+        private List<string> letterBank = new List<string>();
+        private int wrongAns;
+        private List<string> wrongGuesses = new List<string>();
 
         public Hangman(){
             Random gen = new Random();
@@ -20,8 +21,8 @@ namespace HangmanDriver
 
             this.secretWord = words[wordChoice];
 
-            for(int i; i<this.secretWord.Length; i++){
-                this.hiddenWord += "-";
+            for(int i=0; i<this.secretWord.Length; i++){
+                this.hiddenWord += "?"; 
             }
 
             for(int j=1; j<=26; j++)
@@ -30,21 +31,44 @@ namespace HangmanDriver
                 letterBank.Add(Convert.ToString(alpha));
             }
 
-            string man = "";
+            this.wrongAns = 6;
         }
 
-        public bool IsLetter(string guess){
+        public int getWrongAns() => wrongAns;
 
-            return false; //test
+        public string getHidden() => hiddenWord;
+
+        public List<string> getWrongGuesses() => wrongGuesses;
+
+        public string ContainsLetter (string guess){
+
+            if (guess.Length > 1)
+            {
+                if (secretWord.Equals(guess))
+                    return "You guessed the word!";
+                else {
+                    wrongAns--;
+                    return "That is not the word.";
+                }
+            }
+                
+            else if (!secretWord.Contains(guess))
+            {
+                wrongAns--;
+                wrongGuesses.Add(guess);
+                letterBank.Remove(guess);
+                return "\"" + guess + "\" is not in this word.";
+            }
+
+            while(secretWord.Contains(guess))
+            {
+                
+            }
+            
+            return hiddenWord;
+            
         }
-
-        public bool IsWord(string guess) {
-
-            return false; //test
-        }
-
-        public string toString(){
-            return "bruh" //test
-        }
+        
+        
     }
 }
